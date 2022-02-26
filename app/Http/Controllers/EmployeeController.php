@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmployeeModel;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -78,7 +79,8 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        EmployeeModel::find($id)->update($request -> except('_tokten'));
+        return redirect(route('home.index'))->with('status','Record has been updated');
     }
 
     /**

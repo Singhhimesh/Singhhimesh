@@ -14,9 +14,9 @@
                     <div class="card-header">{{ __('Employee data entry') }}</div>
 
                     <div class="card-boNdy">
-                        <form method="POST" action="{{ route('home.update') }}">
+                        <form method="POST" action="{{ route('home.update',$employee->id) }}">
                             @csrf
-
+                            @method('PUT')
                             <div class="row mb-3 my-2">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
